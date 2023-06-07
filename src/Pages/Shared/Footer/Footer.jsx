@@ -1,4 +1,5 @@
 import logo from '../../../assets/logo.jpg'
+
 const Footer = () => {
   return (
     <footer className="bg-black text-white">
