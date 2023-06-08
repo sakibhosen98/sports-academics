@@ -7,7 +7,6 @@ const OurGellary = () => {
         subHeading={"Join Our Team"}
         heading={"Our Gallery"}
       ></SectionTitle>
-        <h>This is gellary</h>
     </section>
   );
 };

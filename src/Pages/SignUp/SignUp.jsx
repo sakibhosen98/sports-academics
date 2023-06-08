@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
+ const {createUser} = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -9,6 +14,20 @@ const SignUp = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+    createUser(data.email, data.password)
+    .then(result => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+      Swal.fire({
+        title: 'User sign up successful',
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        }
+      });
+    })
   };
 
   return (
@@ -103,6 +122,8 @@ const SignUp = () => {
               <input type="submit" value="Sign Up" className="btn bg-orange-500" />
             </div>
           </form>
+          <p><small>Already have an account Please <Link to="/login">Login</Link></small></p>
+                        {/* <SocialLogin></SocialLogin> */}
         </div>
       </div>
     </div>
