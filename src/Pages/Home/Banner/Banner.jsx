@@ -1,20 +1,95 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import { Navigation } from "swiper";
+
+
+// import "swiper/css";
+// import "swiper/css/navigation";
+
+// const Banner = () => {
+//   return (
+//     <div className="h-full">
+//       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+//         <SwiperSlide><img src={banner1} alt="" /></SwiperSlide>
+//         <SwiperSlide><img src={banner2} alt="" /></SwiperSlide>
+//         <SwiperSlide><img src={banner3} alt="" /></SwiperSlide>
+//       </Swiper>
+//     </div>
+//   );
+// };
+
+// export default Banner;
 import banner1 from '../../../assets/images/banner/banner1.jpg'
 import banner2 from '../../../assets/images/banner/banner2.jpg'
 import banner3 from '../../../assets/images/banner/banner3.jpg'
 
-import "swiper/css";
-import "swiper/css/navigation";
 
 const Banner = () => {
   return (
-    <div className="h-full">
-      <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-        <SwiperSlide><img src={banner1} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={banner2} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={banner3} alt="" /></SwiperSlide>
-      </Swiper>
+    <div className="carousel w-full h-full mb-12">
+      <div id="slide1" className="carousel-item relative w-full">
+        <img src={banner1} className="w-full rounded-xl" />
+        <div className="absolute h-full flex items-center text-center left-0 rounded-xl  bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
+          <div className="text-white space-y-7 w-1/2 pl-12">
+            <p className="text-2xl font-semibold">We Are Socca S.C.</p>
+            <h2 className="text-6xl font-bold">
+            Firing The Spirit Of Fairplay and Rivers Race
+            </h2>
+            <p>Starting only @ $999</p>
+            <button className="btn btn-primary bg-[#a55c18]">See More</button>
+          </div>
+        </div>
+
+        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+          <a href="#slide4" className="btn btn-circle">
+            ❮
+          </a>
+          <a href="#slide2" className="btn btn-circle">
+            ❯
+          </a>
+        </div>
+      </div>
+      <div id="slide2" className="carousel-item relative w-full">
+        <img src={banner2} className="w-full rounded-xl" />
+        <div className="absolute h-full flex items-center text-center left-0 rounded-xl  bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
+          <div className="text-white space-y-7 w-1/2 pl-12">
+            <h2 className="text-6xl font-bold">
+              Ideal Partner For all Exciting Adventure Rugby team
+            </h2>
+            <p>Starting only @ $999</p>
+            <button className="btn btn-primary bg-[#a55c18]">See More</button>
+          </div>
+        </div>
+
+        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+          <a href="#slide1" className="btn btn-circle">
+            ❮
+          </a>
+          <a href="#slide3" className="btn btn-circle">
+            ❯
+          </a>
+        </div>
+      </div>
+      <div id="slide3" className="carousel-item relative w-full">
+        <img src={banner3} className="w-full rounded-xl" />
+        <div className="absolute h-full flex items-center text-center left-0 rounded-xl  bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
+          <div className="text-white space-y-7 w-1/2 pl-12">
+            <h2 className="text-6xl font-bold">
+            Firing The Spirit Of Fairplay and Football
+            </h2>
+            <p>Starting only @ $999</p>
+            <button className="btn btn-primary bg-[#a55c18]">See More</button>
+          </div>
+        </div>
+
+        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+          <a href="#slide2" className="btn btn-circle">
+            ❮
+          </a>
+          <a href="#slide1" className="btn btn-circle">
+            ❯
+          </a>
+        </div>
+      </div>
     </div>
   );
 };

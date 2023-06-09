@@ -1,16 +1,18 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 
 const SignUp = () => {
- const {createUser} = useContext(AuthContext);
+ const {createUser, updateUserProfile} = useContext(AuthContext);
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
     console.log(data);
@@ -18,15 +20,22 @@ const SignUp = () => {
     .then(result => {
       const loggedUser = result.user;
       console.log(loggedUser);
-      Swal.fire({
-        title: 'User sign up successful',
-        showClass: {
-          popup: 'animate__animated animate__fadeInDown'
-        },
-        hideClass: {
-          popup: 'animate__animated animate__fadeOutUp'
-        }
-      });
+      updateUserProfile(data.name, data.url)
+      .then(() => {
+        console.log('user profile info updated')
+        reset();
+        Swal.fire({
+          title: 'User create successful',
+          showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+          }
+        });
+        navigate('/');
+      })
+      .catch(error => console.log(error))
     })
   };
 
