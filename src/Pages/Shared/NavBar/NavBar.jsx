@@ -18,10 +18,10 @@ const NavBar = () => {
         <Link to="">Home</Link>
       </li>
       <li>
-        <Link to="">Instructors</Link>
+        <Link to="/instructors">Instructors</Link>
       </li>
       <li>
-        <Link to="">Classes</Link>
+        <Link to="/classes">Classes</Link>
       </li>
       <li>
         <Link to="/dashboard/addclass">Dashboard</Link>
@@ -72,7 +72,7 @@ const NavBar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-600 rounded-box w-52"
           >
             {navOptions}
           </ul>

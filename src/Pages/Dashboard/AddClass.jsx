@@ -21,14 +21,14 @@ const AddClass = () => {
       className,
       classImg,
       availableSeat,
-      price,
+      price: parseFloat(price),
       instructorName: user?.displayName,
       instructorEmail: user?.email
     }
 
     console.log(classes)
 
-    fetch('http://localhost:5000/instructors', {
+    fetch('http://localhost:5000/classes', {
       method: 'POST',
       headers: {
        
@@ -49,30 +49,6 @@ const AddClass = () => {
        }
   
     })
-
-
-
-    // fetch('http://localhost:5000/instructors', {
-    //   method: 'POST',
-    //   headers: {
-    //     'content-type': 'application/json'
-    //   },
-    //   body: JSON.stringify(classes)
-    // })
-    // .then(res => res.json())
-    // .then(data => {
-    //   console.log(data)
-    // })
-
-    // Swal.fire({
-    //   title: 'User create successful',
-    //   showClass: {
-    //     popup: 'animate__animated animate__fadeInDown'
-    //   },
-    //   hideClass: {
-    //     popup: 'animate__animated animate__fadeOutUp'
-    //   }
-    // });
 
   }
 

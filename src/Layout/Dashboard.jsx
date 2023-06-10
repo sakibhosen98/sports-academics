@@ -20,6 +20,7 @@ const Dashboard = () => {
           <ul className="menu p-4 w-80 h-full bg-[#926b23] text-base-content">
             <li><NavLink to="/dashboard/addclass"><FaAddressCard></FaAddressCard> Add Class</NavLink></li>
             <li><NavLink to="/dashboard/home"><FaBandcamp></FaBandcamp> My Selected Class</NavLink></li>
+            <li><NavLink to="/dashboard/manageusers"><FaSubscript></FaSubscript> Manage Users</NavLink></li>
             <li><NavLink><FaSubscript></FaSubscript> Enroll Class</NavLink></li>
             <li><NavLink><FaWallet></FaWallet> Payment</NavLink></li>
             <li><NavLink><FaCalendar></FaCalendar> Payment History</NavLink></li>

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const SignUp = () => {
  const {createUser, updateUserProfile} = useContext(AuthContext);
@@ -15,25 +16,35 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log(data);
+
     createUser(data.email, data.password)
     .then(result => {
       const loggedUser = result.user;
       console.log(loggedUser);
       updateUserProfile(data.name, data.url)
       .then(() => {
-        console.log('user profile info updated')
-        reset();
-        Swal.fire({
-          title: 'User create successful',
-          showClass: {
-            popup: 'animate__animated animate__fadeInDown'
+        const saveUser = {name: data.name, email: data.email}
+        fetch('http://localhost:5000/users',{
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
           },
-          hideClass: {
-            popup: 'animate__animated animate__fadeOutUp'
+          body: JSON.stringify(saveUser)
+        })
+        .then(res => res.json())
+        .then(data => {
+          if(data.insertedId){
+            reset();
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'User created successfully',
+              showConfirmButton: false,
+              timer: 1500
+            });
+            navigate('/');
           }
-        });
-        navigate('/');
+        })
       })
       .catch(error => console.log(error))
     })
@@ -132,7 +143,7 @@ const SignUp = () => {
             </div>
           </form>
           <p><small>Already have an account Please <Link to="/login">Login</Link></small></p>
-                        {/* <SocialLogin></SocialLogin> */}
+                        <SocialLogin></SocialLogin>
         </div>
       </div>
     </div>
