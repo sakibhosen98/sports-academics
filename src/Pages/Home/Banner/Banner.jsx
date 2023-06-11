@@ -1,23 +1,4 @@
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import { Navigation } from "swiper";
 
-
-// import "swiper/css";
-// import "swiper/css/navigation";
-
-// const Banner = () => {
-//   return (
-//     <div className="h-full">
-//       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-//         <SwiperSlide><img src={banner1} alt="" /></SwiperSlide>
-//         <SwiperSlide><img src={banner2} alt="" /></SwiperSlide>
-//         <SwiperSlide><img src={banner3} alt="" /></SwiperSlide>
-//       </Swiper>
-//     </div>
-//   );
-// };
-
-// export default Banner;
 import banner1 from '../../../assets/images/banner/banner1.jpg'
 import banner2 from '../../../assets/images/banner/banner2.jpg'
 import banner3 from '../../../assets/images/banner/banner3.jpg'
@@ -35,7 +16,7 @@ const Banner = () => {
             Firing The Spirit Of Fairplay and Rivers Race
             </h2>
             <p>Starting only @ $999</p>
-            <button className="btn btn-primary bg-[#a55c18]">See More</button>
+            <button className="btn btn-outline bg-slate-100 border-0 border-b-4 border-orange-400 mt-4">See More</button>
           </div>
         </div>
 
@@ -56,7 +37,7 @@ const Banner = () => {
               Ideal Partner For all Exciting Adventure Rugby team
             </h2>
             <p>Starting only @ $999</p>
-            <button className="btn btn-primary bg-[#a55c18]">See More</button>
+            <button className="btn btn-outline bg-slate-100 border-0 border-b-4 border-orange-400 mt-4">See More</button>
           </div>
         </div>
 
@@ -77,7 +58,7 @@ const Banner = () => {
             Firing The Spirit Of Fairplay and Football
             </h2>
             <p>Starting only @ $999</p>
-            <button className="btn btn-primary bg-[#a55c18]">See More</button>
+            <button className="btn btn-outline bg-slate-100 border-0 border-b-4 border-orange-400 mt-4">See More</button>
           </div>
         </div>
 
@@ -95,3 +76,4 @@ const Banner = () => {
 };
 
 export default Banner;
+

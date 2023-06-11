@@ -12,11 +12,11 @@ const SingleClass = ({singleClass}) => {
       </figure>
       <div className="card-body items-center text-center">
         <h2 className="card-title text-3xl"> {className}</h2>
-        <p className="text-xl">Instructor Name: {instructorName}</p>
-        <p className="text-xl">Available Seats: {availableSeat}</p>
-        <p className="text-xl"> Price: {price}</p>
+        <p className="font-semibold">Instructor Name: {instructorName}</p>
+        <p className="font-semibold">Available Seats: {availableSeat}</p>
+        <p className="font-semibold"> Price: {price}</p>
         <div className="card-actions">
-          <button className="btn btn-primary">Buy Now</button>
+          <button className="btn btn-outline bg-slate-100 border-0 border-b-4 border-orange-400 mt-4">Selected</button>
         </div>
       </div>
     </div>
