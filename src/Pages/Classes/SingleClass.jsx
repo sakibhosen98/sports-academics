@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const SingleClass = ({singleClass}) => {
   console.log(singleClass)
   const {classImg,className,instructorName,availableSeat,price} = singleClass;
@@ -17,6 +19,7 @@ const SingleClass = ({singleClass}) => {
         <p className="font-semibold"> Price: {price}</p>
         <div className="card-actions">
           <button className="btn btn-outline bg-slate-100 border-0 border-b-4 border-orange-400 mt-4">Selected</button>
+          <Link className="btn btn-outline bg-slate-100 border-0 border-b-4 border-orange-400 mt-4">Selected</Link>
         </div>
       </div>
     </div>

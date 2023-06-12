@@ -1,25 +1,17 @@
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
-// import { useQuery } from "react-query";
 
 const ManageUser = () => {
-  const [users, setUsers] = useState([]);
 
-  // const {data: allUsers = [], refetch} = useQuery({
-  //   queryKey: ["users"],
-  //   queryFn: async () => {
-  //     const res = await fetch('http://localhost:5000/users')
-  //     return res.json();
-  //   }
-  // })
-
-  useEffect(() => {
-    fetch("http://localhost:5000/users")
-      .then((res) => res.json())
-      .then((data) => setUsers(data));
-  }, []);
+  const {data: users = [], refetch} = useQuery({
+    queryKey: ["users"],
+    queryFn: async () => {
+      const res = await fetch('http://localhost:5000/users')
+      return res.json();
+    }
+  })
 
   console.log(users)
 
@@ -30,7 +22,8 @@ const ManageUser = () => {
     .then(res => res.json())
     .then(data => {
       console.log(data)
-      if(data.matchedCount){
+      if(data.modifiedCount){
+        refetch()
         Swal.fire({
           position: 'top-end',
           icon: 'success',
@@ -49,7 +42,8 @@ const ManageUser = () => {
     .then(res => res.json())
     .then(data => {
       console.log(data)
-      if(data.matchedCount){
+      if(data.modifiedCount){
+       refetch()
         Swal.fire({
           position: 'top-end',
           icon: 'success',
@@ -72,6 +66,7 @@ const ManageUser = () => {
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.isConfirmed) {
+          refetch()
             fetch(`http://localhost:5000/users/${user._id}`, {
                 method: 'DELETE'
             })

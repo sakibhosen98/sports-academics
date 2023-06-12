@@ -24,8 +24,8 @@ const Dashboard = () => {
           <ul className="menu p-4 w-80 h-full bg-[#926b23] text-base-content">
             {
               isAdmin ? <>
-            <li><NavLink to="/dashboard/addclass"><FaAddressCard></FaAddressCard> Admin Home</NavLink></li>
-            <li><NavLink to="/dashboard/addclass"><FaWallet></FaWallet> Manage Classes</NavLink></li>
+            <li><NavLink to="/dashboard/"><FaAddressCard></FaAddressCard> Admin Home</NavLink></li>
+            <li><NavLink to="/dashboard/"><FaWallet></FaWallet> Manage Classes</NavLink></li>
             <li><NavLink to="/dashboard/manageusers"><FaUsers></FaUsers> Manage Users</NavLink></li>
               </> : <>
             <li><NavLink><FaSubscript></FaSubscript> Enroll Class</NavLink></li>
