@@ -18,8 +18,9 @@ const SingleClass = ({singleClass}) => {
         <p className="font-semibold">Available Seats: {availableSeat}</p>
         <p className="font-semibold"> Price: {price}</p>
         <div className="card-actions">
+          <Link id="/myselectedclass">
           <button className="btn btn-outline bg-slate-100 border-0 border-b-4 border-orange-400 mt-4">Selected</button>
-          <Link className="btn btn-outline bg-slate-100 border-0 border-b-4 border-orange-400 mt-4">Selected</Link>
+          </Link>
         </div>
       </div>
     </div>

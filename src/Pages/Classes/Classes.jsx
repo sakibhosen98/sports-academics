@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
 import SingleClass from "./singleClass";
+import useClass from "../../hooks/useClass";
 
 const Classes = () => {
-  const [classes, setClasses] = useState([]);
+  const [classes, , refetch] = useClass();
 
-  useEffect( () => {
-    fetch('http://localhost:5000/classes')
-    .then(res => res.json())
-    .then(data => setClasses(data))
-  },[])
+  // const [classes, setClasses] = useState([]);
+
+  // useEffect( () => {
+  //   fetch('http://localhost:5000/classes')
+  //   .then(res => res.json())
+  //   .then(data => setClasses(data))
+  // },[])
 
   console.log(classes)
 
