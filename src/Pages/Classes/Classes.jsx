@@ -11,6 +11,8 @@ const Classes = () => {
   //   .then(res => res.json())
   //   .then(data => setClasses(data))
   // },[])
+  
+
 
   console.log(classes)
 

@@ -1,26 +1,45 @@
+import Swal from "sweetalert2";
 
 const SingleClass = ({singleClass}) => {
   console.log(singleClass)
-  const {classImg,className,instructorName,availableSeat,price, _id} = singleClass;
+  const {classImg,className,instructorName,availableSeat,price} = singleClass;
 
-  const handleMyClass = (id) => {
-    fetch(`http://localhost:5000/myClass/${id}`, {
-      method: 'PATCH'
+  const handleMyCalss = data => {
+    // console.log('myclass', data)
+    
+    const classes = {
+      className,
+      classImg,
+      availableSeat,
+      price: parseFloat(price),
+      instructorName: data?.displayName,
+      instructorEmail: data?.email
+    }
+
+    console.log('new class', classes)
+
+    fetch('http://localhost:5000/myClasses', {
+      method: 'POST',
+      headers: {
+       
+     'content-type': 'application/json'
+      },
+      body: JSON.stringify(classes)
     })
     .then(res => res.json())
     .then(data => {
       console.log(data)
-      // if(data.modifiedCount){
-      //   refetch()
-      //   Swal.fire({
-      //     position: 'top-end',
-      //     icon: 'success',
-      //     title: `${user.name} is an admin Now!`,
-      //     showConfirmButton: false,
-      //     timer: 1500
-      //   })
-      // }
+      if(data.insertedId){
+        Swal.fire({
+          title: 'success!',
+          text: 'Class Added Successfully',
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        })
+       }
+  
     })
+
   }
 
   return (
@@ -38,7 +57,7 @@ const SingleClass = ({singleClass}) => {
         <p className="font-semibold">Available Seats: {availableSeat}</p>
         <p className="font-semibold"> Price: {price}</p>
         <div className="card-actions">
-          <button onClick={() => handleMyClass(_id)} className="btn btn-outline bg-slate-100 border-0 border-b-4 border-orange-400 mt-4">Selected</button>
+          <button onClick={() => handleMyCalss(singleClass)} className="btn btn-outline bg-slate-100 border-0 border-b-4 border-orange-400 mt-4">Selected</button>
         </div>
       </div>
     </div>
