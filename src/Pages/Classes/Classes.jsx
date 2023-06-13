@@ -22,6 +22,7 @@ const Classes = () => {
         singleClass={singleClass}
         ></SingleClass>)
        }
+       <button>select</button>
     </div>
   );
 };

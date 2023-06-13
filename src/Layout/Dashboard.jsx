@@ -1,8 +1,8 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { FaAddressCard, FaBandcamp, FaCalendar, FaHome, FaSubscript, FaUsers, FaUtensils, FaWallet } from "react-icons/fa";
+import { FaAddressCard, FaCalendar, FaHome, FaSubscript, FaUsers, FaUtensils, FaWallet } from "react-icons/fa";
 
 const Dashboard = () => {
-
+  
   // TODO: laod data from the serer to dynamic isAdmin based on Data
   const isAdmin = true;
 
@@ -25,25 +25,23 @@ const Dashboard = () => {
             {
               isAdmin ? <>
             <li><NavLink to="/dashboard/"><FaAddressCard></FaAddressCard> Admin Home</NavLink></li>
-            <li><NavLink to="/dashboard/"><FaWallet></FaWallet> Manage Classes</NavLink></li>
+            <li><NavLink to="/dashboard/manageclasses"><FaWallet></FaWallet> Manage Classes</NavLink></li>
             <li><NavLink to="/dashboard/manageusers"><FaUsers></FaUsers> Manage Users</NavLink></li>
+            <li><NavLink to="/dashboard/myselectedclass"><FaHome></FaHome>My Selected Class</NavLink></li>
               </> : <>
             <li><NavLink><FaSubscript></FaSubscript> Enroll Class</NavLink></li>
             <li><NavLink><FaCalendar></FaCalendar> Payment History</NavLink></li>
                <li><NavLink to="/dashboard/addclass"><FaUtensils></FaUtensils> Add Class</NavLink></li>
             <li><NavLink><FaWallet></FaWallet> Payment</NavLink></li>
-            <li><NavLink to="/dashboard/home"><FaBandcamp></FaBandcamp> My Selected Class</NavLink></li>
-            <li><NavLink to="/dashboard/home"><FaBandcamp></FaBandcamp> My Selected Class</NavLink></li>
             <li><NavLink to="/dashboard/manageusers"><FaSubscript></FaSubscript> Manage Users</NavLink></li>
             <li><NavLink><FaSubscript></FaSubscript> Enroll Class</NavLink></li>
-            <li><NavLink><FaWallet></FaWallet> Payment</NavLink></li>
-            <li><NavLink><FaCalendar></FaCalendar> Payment History</NavLink></li>
+            <li><NavLink><FaSubscript></FaSubscript> FeedBack</NavLink></li>
+            <li><NavLink><FaSubscript></FaSubscript>My Classes</NavLink></li>
               </>
             }
            
             <div className="divider"></div>
             <li><NavLink to="/"><FaHome></FaHome>Home</NavLink></li>
-            <li><NavLink to="/dashboard/myselectedclass"><FaHome></FaHome>My Selected Class</NavLink></li>
           </ul>
         </div>
       </div>
