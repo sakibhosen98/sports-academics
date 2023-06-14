@@ -21,7 +21,7 @@ const ManageUser = () => {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
+      console.log('adimin data',data)
       if(data.modifiedCount){
         refetch()
         Swal.fire({

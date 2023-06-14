@@ -1,7 +1,12 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { FaAddressCard, FaCalendar, FaHome, FaSubscript, FaUsers, FaUtensils, FaWallet } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../Providers/AuthProvider";
+// import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Dashboard = () => {
+  const {user} = useContext(AuthContext);
+  console.log('user dashboard',user)
   
   // TODO: laod data from the serer to dynamic isAdmin based on Data
   const isAdmin = true;
@@ -28,6 +33,7 @@ const Dashboard = () => {
             <li><NavLink to="/dashboard/manageclasses"><FaWallet></FaWallet> Manage Classes</NavLink></li>
             <li><NavLink to="/dashboard/manageusers"><FaUsers></FaUsers> Manage Users</NavLink></li>
             <li><NavLink to="/dashboard/myselectedclass"><FaHome></FaHome>My Selected Class</NavLink></li>
+            <li><NavLink to="/dashboard/myclasses"><FaSubscript></FaSubscript> My Classes</NavLink></li>
               </> : <>
             <li><NavLink><FaSubscript></FaSubscript> Enroll Class</NavLink></li>
             <li><NavLink><FaCalendar></FaCalendar> Payment History</NavLink></li>

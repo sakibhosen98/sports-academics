@@ -20,7 +20,7 @@ const ManageClasses = () => {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
+      console.log('pending', data)
       if(data.modifiedCount){
         refetch()
         Swal.fire({
@@ -101,6 +101,7 @@ const ManageClasses = () => {
               <th>Class Name</th>
               <th>Instructor Name</th>
               <th>Instructor Email</th>
+              <th>Role</th>
               <th>Pending</th>
               <th>Approved</th>
               <th>Deny</th>
@@ -116,7 +117,7 @@ const ManageClasses = () => {
                 <td>{singleClass.instructorEmail}</td>
                 <td>
                   {
-                    singleClass.role == 'pending' ? 'pending'  : singleClass.role === 'approved' ? 'approved' : 'deny'
+                    singleClass.role == 'approved' ? 'approved'  : singleClass.role === 'deny' ? 'deny' : 'pending'
                   }
                 </td>
                 <td><button onClick={() => handleMakeApproved(singleClass)} className="btn btn-sm text-white bg-[#6a6af3]">Pending</button></td>
