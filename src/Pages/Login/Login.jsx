@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -33,6 +34,10 @@ const Login = () => {
   };
 
   return (
+    <>
+    <Helmet>
+      <title>Sports Academies | Login</title>
+    </Helmet>
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className=""></div>
@@ -78,6 +83,7 @@ const Login = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

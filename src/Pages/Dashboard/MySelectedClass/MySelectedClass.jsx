@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
 
 const MySelectedClass = () => {
   const {data: myClasses = [], } = useQuery({
@@ -10,6 +11,10 @@ const MySelectedClass = () => {
   })
   // console.log(myClasses)
   return (
+    <>
+    <Helmet>
+      <title>Sports Academies | Instructors</title>
+    </Helmet>
     <div>
         <h2>My Selected Class: {myClasses.length}</h2>
         <div className="overflow-x-auto">
@@ -41,6 +46,7 @@ const MySelectedClass = () => {
         </table>
       </div>
     </div>
+    </>
   );
 };
 

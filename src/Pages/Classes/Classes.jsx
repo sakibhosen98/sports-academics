@@ -3,6 +3,7 @@
 
 import SingleClass from "./singleClass";
 import useClass from "../../hooks/useClass";
+import { Helmet } from "react-helmet-async";
 
 const Classes = () => {
   const [classes, , ] = useClass();
@@ -13,6 +14,10 @@ const Classes = () => {
   // console.log(classes)
 
   return (
+    <>
+    <Helmet>
+      <title>Sports Academies | Classes</title>
+    </Helmet>
     <div className="grid md:grid-cols-3 gap-3">
        {
         allClasses.map(singleClass => <SingleClass
@@ -21,6 +26,7 @@ const Classes = () => {
         ></SingleClass>)
        }
     </div>
+    </>
   );
 };
 
