@@ -120,9 +120,9 @@ const ManageClasses = () => {
                     singleClass.role == 'approved' ? 'approved'  : singleClass.role === 'deny' ? 'deny' : 'pending'
                   }
                 </td>
-                <td><button onClick={() => handleMakeApproved(singleClass)} className="btn btn-sm text-white bg-[#6a6af3]">Pending</button></td>
-                <td><button onClick={() => handleMakePending(singleClass)} className="btn btn-sm text-white bg-[#6a6af3]">Approved</button></td>
-                <td><button onClick={() => handleDeny(singleClass)} className="btn btn-ghost bg-red-600">Deny</button></td>
+                <td><button onClick={() => handleMakeApproved(singleClass)} className="btn btn-sm text-white bg-[#6a6af3]">Approved</button></td>
+                <td><button onClick={() => handleMakePending(singleClass)} className="btn btn-sm text-white bg-[#6a6af3]">Deny</button></td>
+                <td><button onClick={() => handleDeny(singleClass)} className="btn btn-ghost bg-red-600">FeedBack</button></td>
               </tr>)
             }
             

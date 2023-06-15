@@ -21,7 +21,7 @@ const ManageUser = () => {
     })
     .then(res => res.json())
     .then(data => {
-      console.log('adimin data',data)
+      console.log(data)
       if(data.modifiedCount){
         refetch()
         Swal.fire({
@@ -41,7 +41,7 @@ const ManageUser = () => {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
+      console.log('instructor', data)
       if(data.modifiedCount){
        refetch()
         Swal.fire({
@@ -114,7 +114,7 @@ const ManageUser = () => {
                 <td>{user.email}</td>
                 <td>
                   {
-                    user.role == 'admin' ? 'admin'  : user.role === 'instructor' ? 'instructor' : 'student'
+                    user.role === 'admin' ? 'admin'  : user.role === 'instructor' ? 'instructor' : 'student'
                   }
                 </td>
                 <td><button onClick={() => handleMakeInstructor(user)} className="btn btn-sm text-white bg-[#6a6af3]">Make Instructor</button></td>

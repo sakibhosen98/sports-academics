@@ -8,7 +8,7 @@ const MySelectedClass = () => {
       return res.json();
     }
   })
-  console.log(myClasses)
+  // console.log(myClasses)
   return (
     <div>
         <h2>My Selected Class: {myClasses.length}</h2>
