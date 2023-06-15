@@ -1,16 +1,25 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { FaAddressCard, FaCalendar, FaHome, FaSubscript, FaUsers, FaUtensils, FaWallet } from "react-icons/fa";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 // import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Dashboard = () => {
-  const {user} = useContext(AuthContext);
-  console.log('user dashboard',user)
-  
-  // TODO: laod data from the serer to dynamic isAdmin based on Data
-  const isAdmin = true;
+  const {user, loading} = useContext(AuthContext);
+  const [axiosSecure]= useAxiosSecure();
+  const [role, setRole] = useState([]);
 
+  useEffect(() => {
+    axiosSecure.get(`/users/admin/${user?.email}`).then(res => {
+      setRole(res.data);
+      console.log('user role', res.data);
+      loading(true)
+    })
+  } ,[])
+
+  const userStatus = role.role;
+  
   return (
     <div>
       <div className="drawer lg:drawer-open">
@@ -28,26 +37,29 @@ const Dashboard = () => {
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 h-full bg-[#926b23] text-base-content">
             {
-              isAdmin ? <>
+              userStatus === 'admin' ? <>
             <li><NavLink to="/dashboard/"><FaAddressCard></FaAddressCard> Admin Home</NavLink></li>
             <li><NavLink to="/dashboard/manageclasses"><FaWallet></FaWallet> Manage Classes</NavLink></li>
             <li><NavLink to="/dashboard/manageusers"><FaUsers></FaUsers> Manage Users</NavLink></li>
-            <li><NavLink to="/dashboard/myselectedclass"><FaHome></FaHome>My Selected Class</NavLink></li>
-            <li><NavLink to="/dashboard/myclasses"><FaSubscript></FaSubscript> My Classes</NavLink></li>
-              </> : <>
+              </> : 
+              
+              userStatus === 'instructor' ? <>
+              <li><NavLink to="/dashboard/"><FaSubscript></FaSubscript>Instructor Home</NavLink></li>
+               <li><NavLink to="/dashboard/addclass"><FaUtensils></FaUtensils> Add Class</NavLink></li>
+              <li><NavLink to="/dashboard/myclasses"><FaSubscript></FaSubscript> My Classes</NavLink></li>
             <li><NavLink><FaSubscript></FaSubscript> Enroll Class</NavLink></li>
             <li><NavLink><FaCalendar></FaCalendar> Payment History</NavLink></li>
-               <li><NavLink to="/dashboard/addclass"><FaUtensils></FaUtensils> Add Class</NavLink></li>
+              </> : <>
+              <li><NavLink><FaSubscript></FaSubscript>Student Home</NavLink></li>
+            <li><NavLink to="/dashboard/myselectedclass"><FaHome></FaHome>My Selected Class</NavLink></li>
             <li><NavLink><FaWallet></FaWallet> Payment</NavLink></li>
-            <li><NavLink to="/dashboard/manageusers"><FaSubscript></FaSubscript> Manage Users</NavLink></li>
-            <li><NavLink><FaSubscript></FaSubscript> Enroll Class</NavLink></li>
-            <li><NavLink><FaSubscript></FaSubscript> FeedBack</NavLink></li>
-            <li><NavLink><FaSubscript></FaSubscript>My Classes</NavLink></li>
               </>
             }
            
             <div className="divider"></div>
             <li><NavLink to="/"><FaHome></FaHome>Home</NavLink></li>
+            <li><NavLink to="/instructors"><FaHome></FaHome>Instructors</NavLink></li>
+            <li><NavLink to="/classes"><FaHome></FaHome>classes</NavLink></li>
           </ul>
         </div>
       </div>
