@@ -24,7 +24,7 @@ const SignUp = () => {
       updateUserProfile(data.name, data.url)
       .then(() => {
         const saveUser = {name: data.name, email: data.email, photoURL: data.url}
-        fetch('http://localhost:5000/users',{
+        fetch('https://sports-academies-server-eta.vercel.app/users',{
           method: 'POST',
           headers: {
             'content-type': 'application/json'

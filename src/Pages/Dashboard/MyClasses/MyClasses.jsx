@@ -7,7 +7,7 @@ const MyClasses = () => {
   const {data: classes = [], refetch} = useQuery({
     queryKey: ["classes"],
     queryFn: async () => {
-      const res = await fetch('http://localhost:5000/classes')
+      const res = await fetch('https://sports-academies-server-eta.vercel.app/classes')
       return res.json();
     }
   })
@@ -15,7 +15,7 @@ const MyClasses = () => {
   console.log( 'manage classes', classes)
 
   // const handleMakeApproved = singleClass => {
-  //   fetch(`http://localhost:5000/classes/approved/${singleClass._id}`, {
+  //   fetch(`https://sports-academies-server-eta.vercel.app/classes/approved/${singleClass._id}`, {
   //     method: 'PATCH'
   //   })
   //   .then(res => res.json())
@@ -36,7 +36,7 @@ const MyClasses = () => {
 
   const handleMakeApproved = singleClass => {
     console.log('singleclass',singleClass)
-    fetch(`http://localhost:5000/classes/approved/${singleClass._id}`, {
+    fetch(`https://sports-academies-server-eta.vercel.app/classes/approved/${singleClass._id}`, {
       method: 'PATCH'
     })
     .then(res => res.json())
@@ -56,7 +56,7 @@ const MyClasses = () => {
   }
 
   const handleMakeDeny = singleClass => {
-    fetch(`http://localhost:5000/classes/deny/${singleClass._id}`, {
+    fetch(`https://sports-academies-server-eta.vercel.app/classes/deny/${singleClass._id}`, {
       method: 'PATCH'
     })
     .then(res => res.json())

@@ -12,10 +12,10 @@ const PopularClasses = () => {
 
   useEffect(() => {
     // Fetch image data from the API
-    axios.get('http://localhost:5000/classes')
+    axios.get('https://sports-academies-server-eta.vercel.app/classes')
       .then(response => {
         // Update the state with the fetched classes
-        setClasses(response.data);
+        setClasses(response.data.slice(0,6));
       })
       .catch(error => {
         console.error('Error fetching classes:', error);
@@ -24,8 +24,8 @@ const PopularClasses = () => {
   return (
     <section>
       <SectionTitle
-        subHeading={"Join Our Team"}
-        heading={"Our Popular Classses Slider"}
+        subHeading={"Popular Classes"}
+        heading={"From Our Classes"}
       ></SectionTitle>
     <Swiper
       slidesPerView={"auto"}

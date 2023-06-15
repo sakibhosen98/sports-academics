@@ -4,7 +4,7 @@ const MySelectedClass = () => {
   const {data: myClasses = [], } = useQuery({
     queryKey: ["myClasses"],
     queryFn: async () => {
-      const res = await fetch('http://localhost:5000/myClasses')
+      const res = await fetch('https://sports-academies-server-eta.vercel.app/myClasses')
       return res.json();
     }
   })
@@ -20,6 +20,7 @@ const MySelectedClass = () => {
               <th>#</th>
               <th>Image</th>
               <th>Class Name</th>
+              <th>Price</th>
               <th>Payment</th>
               <th>Delete</th>
             </tr>
@@ -30,6 +31,7 @@ const MySelectedClass = () => {
                 <th>{index + 1}</th>
                 <td><img src={singleClass.classImg} className="w-[60px] rounded-full"  alt="" /></td>
                 <td>{singleClass.className}</td>
+                <td>{singleClass.price}</td>
                 <td><button  className="btn btn-sm text-white bg-[#6a6af3]">Pay Now</button></td>
                 <td><button  className="btn btn-ghost bg-red-600">Delete</button></td>
               </tr>)

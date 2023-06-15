@@ -28,7 +28,7 @@ const AddClass = () => {
 
     console.log(classes)
 
-    fetch('http://localhost:5000/classes', {
+    fetch('https://sports-academies-server-eta.vercel.app/classes', {
       method: 'POST',
       headers: {
        

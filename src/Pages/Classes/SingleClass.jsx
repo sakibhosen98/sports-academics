@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 
 const SingleClass = ({singleClass}) => {
-  console.log(singleClass)
+  // console.log(singleClass)
   const {classImg,className,instructorName,availableSeat,price} = singleClass;
 
   const handleMyCalss = data => {
@@ -18,7 +18,7 @@ const SingleClass = ({singleClass}) => {
 
     console.log('new class', classes)
 
-    fetch('http://localhost:5000/myClasses', {
+    fetch('https://sports-academies-server-eta.vercel.app/myClasses', {
       method: 'POST',
       headers: {
        
@@ -43,7 +43,7 @@ const SingleClass = ({singleClass}) => {
   }
 
   return (
-    <div className="card w-full mx-auto bg-base-200 shadow-xl">
+    <div className="card w-auto mx-auto bg-base-200 shadow-xl">
       <figure className="px-10 pt-10">
         <img
           src={classImg}

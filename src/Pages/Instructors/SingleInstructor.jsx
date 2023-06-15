@@ -1,12 +1,9 @@
-import { useContext } from "react";
-import { AuthContext } from "../../Providers/AuthProvider";
 
 const SingleInstructor = ({instructor}) => {
-  const {updateUserProfile} = useContext(AuthContext);
   // console.log(updateUserProfile)
 
   const {name, email, photoURL} = instructor;
-  console.log(instructor)
+  // console.log(instructor)
   return (
     <div className="mt-12">
       <div className="card w-full mx-auto bg-base-200 shadow-xl">

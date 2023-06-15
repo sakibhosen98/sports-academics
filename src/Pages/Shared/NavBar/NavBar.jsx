@@ -24,12 +24,9 @@ const NavBar = () => {
       <li>
         <Link to="/classes">Classes</Link>
       </li>
-      <li>
+      {user &&  <li className={`d-${user ? 'block' : 'none'}`}>
         <Link to="/dashboard/addclass">Dashboard</Link>
-      </li>
-      <li>
-        <Link to="/secret">Secret</Link>
-      </li>
+      </li>}
       <li>
         <Link to="/signup">Sign Up</Link>
       </li>
@@ -87,7 +84,9 @@ const NavBar = () => {
         <ul className="menu menu-horizontal px-1">{navOptions}</ul>
       </div>
       <div className="navbar-end">
-        <img className="w-[40px] rounded-full" src={logo} alt="" />
+        <div className={`d-${user ? 'block' : 'none'}`}>
+        <img className="w-[40px] rounded-full" src={user && user.photoURL} alt="" />
+        </div>
       </div>
     </div>
   );

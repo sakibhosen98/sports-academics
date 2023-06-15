@@ -3,10 +3,9 @@ import { FaAddressCard, FaCalendar, FaHome, FaSubscript, FaUsers, FaUtensils, Fa
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import useAxiosSecure from "../hooks/useAxiosSecure";
-// import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Dashboard = () => {
-  const {user, loading} = useContext(AuthContext);
+  const {user} = useContext(AuthContext);
   const [axiosSecure]= useAxiosSecure();
   const [role, setRole] = useState([]);
 
@@ -14,14 +13,13 @@ const Dashboard = () => {
     axiosSecure.get(`/users/admin/${user?.email}`).then(res => {
       setRole(res.data);
       console.log('user role', res.data);
-      loading(true)
     })
   } ,[])
 
   const userStatus = role.role;
   
   return (
-    <div>
+    <div className={`d-${user ? 'block' : 'none'}`}>
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center">
@@ -52,7 +50,7 @@ const Dashboard = () => {
               </> : <>
               <li><NavLink><FaSubscript></FaSubscript>Student Home</NavLink></li>
             <li><NavLink to="/dashboard/myselectedclass"><FaHome></FaHome>My Selected Class</NavLink></li>
-            <li><NavLink><FaWallet></FaWallet> Payment</NavLink></li>
+            <li><NavLink><FaWallet></FaWallet> Enroll class</NavLink></li>
               </>
             }
            
