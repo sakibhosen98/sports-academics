@@ -14,6 +14,7 @@ import ManageUser from "../Pages/Dashboard/ManageUsers/ManageUser";
 import MySelectedClass from "../Pages/Dashboard/MySelectedClass/MySelectedClass";
 import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
 import MyClasses from "../Pages/Dashboard/MyClasses/MyClasses";
+import NotFound from "../Pages/NotFound/NotFound";
 
 export const router = createBrowserRouter([
   {
@@ -41,6 +42,7 @@ export const router = createBrowserRouter([
         element: <SignUp></SignUp>
       }
     ],
+    errorElement: <NotFound></NotFound>
   },
   {
     path: 'dashboard',
