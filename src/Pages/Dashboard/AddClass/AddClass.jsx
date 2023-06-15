@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 
 const AddClass = () => {
@@ -55,6 +56,10 @@ const AddClass = () => {
     
   
   return (
+    <>
+      <Helmet>
+        <title>Starts Academies | AddClass</title>
+      </Helmet>
     <div className="bg-[#e4cda3]">
       <h2 className="text-3xl font-bold py-5 text-center">Instructor Input Here</h2>
       <form onSubmit={handleSubmit} className="p-8">
@@ -115,13 +120,8 @@ const AddClass = () => {
           </div>
       </form>
     </div>
+    </>
   );
 };
 
 export default AddClass;
-
-{
-  /* <Helmet>
-        <title>Starts Academies | AddClass</title>
-      </Helmet> */
-}
