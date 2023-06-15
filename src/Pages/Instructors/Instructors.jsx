@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import SingleInstructor from "./SingleInstructor";
+import { Helmet } from "react-helmet-async";
 
 const Instructors = () => {
   const [instructors, setInstructors] = useState([]);
@@ -11,6 +12,10 @@ const Instructors = () => {
   }, []);
   const allInstructors = instructors.filter(instructor => instructor.role === 'instructor')
   return (
+    <>
+    <Helmet>
+      <title>Sports Academies | Instructors</title>
+    </Helmet>
     <div className="">
       <h2 className="text-center">{instructors.length}</h2>
       <div className="grid md:grid-cols-3 gap-3">
@@ -22,6 +27,7 @@ const Instructors = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 
