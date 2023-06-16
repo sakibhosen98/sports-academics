@@ -58,7 +58,6 @@ const Dashboard = () => {
             <li><NavLink><FaWallet></FaWallet> Enroll class</NavLink></li>
               </>
             }
-           
             <div className="divider"></div>
             <li><NavLink to="/"><FaHome></FaHome>Home</NavLink></li>
             <li><NavLink to="/instructors"><FaMandalorian></FaMandalorian>Instructors</NavLink></li>

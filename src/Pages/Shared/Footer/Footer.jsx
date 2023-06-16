@@ -1,3 +1,4 @@
+import { FaFacebook, FaPhone } from 'react-icons/fa';
 import logo from '../../../assets/logo.jpg'
 
 const Footer = () => {
@@ -26,9 +27,9 @@ const Footer = () => {
         </div>
         <div>
           <span className="footer-title">Contact</span>
-          <p><a className="link link-hover"></a>+8801700-000000</p>
-          <p><a className="link link-hover"></a>sakib@hasn.com</p>
-          <p><a className="link link-hover"></a>Facebook</p>
+          <p className='flex gap-2'><a className="link link-hover"> </a><FaPhone></FaPhone>+8801700-000000</p>
+          <p><a className="link link-hover"></a>  sakib@hasn.com</p>
+          <p ><a className="link link-hover"></a><FaFacebook></FaFacebook> Facebook</p>
         </div>
       </div>
       <div className="footer footer-center p-4 ">

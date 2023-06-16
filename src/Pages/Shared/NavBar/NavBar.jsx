@@ -25,7 +25,7 @@ const NavBar = () => {
         <Link to="/classes">Classes</Link>
       </li>
       {user &&  <li className={`d-${user ? 'block' : 'none'}`}>
-        <Link to="/dashboard/addclass">Dashboard</Link>
+        <Link to="/dashboard">Dashboard</Link>
       </li>}
       <li>
         <Link to="/signup">Sign Up</Link>

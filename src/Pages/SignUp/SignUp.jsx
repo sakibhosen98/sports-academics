@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const SignUp = () => {
+  const [passwordCheck, setPasswordCheck] = useState('');
  const {createUser, updateUserProfile} = useContext(AuthContext);
   const {
     register,
@@ -16,8 +17,12 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-
+    if(data.password !== data.confirmPassword){
+      return setPasswordCheck("Passwort Not match ")
+    }
+    console.log('23', data)
     createUser(data.email, data.password)
+
     .then(result => {
       const loggedUser = result.user;
       console.log(loggedUser);
@@ -139,6 +144,21 @@ const SignUp = () => {
                 </p>
               )}
             </div>
+            <input
+                type="password"
+                {...register("confirmPassword", {
+                  required: true,
+              
+                })}
+                placeholder="password"
+                className="input input-bordered"
+              />
+              {errors.confirmPassword?.type === "required" && (
+                <p role="alert" className="text-red-600">
+                  Please input the confirm password
+                </p>
+              )}
+              <p>{passwordCheck}</p>
             <div className="form-control mt-6">
               <input type="submit" value="Sign Up" className="btn bg-orange-500" />
             </div>
